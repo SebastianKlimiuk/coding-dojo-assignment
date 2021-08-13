@@ -10,4 +10,5 @@
       "type": "java.lang.String",
       "description": "API key to access OpenWeather service."
     }
-  ] }
+  ]
+}

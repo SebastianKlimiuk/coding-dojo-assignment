@@ -1,6 +1,5 @@
 package com.assignment.spring.external.openweather.service;
 
-import com.assignment.spring.external.openweather.constants.RequestParams;
 import com.assignment.spring.external.openweather.response.WeatherResponse;
 import com.assignment.spring.weather.WeatherProvider;
 import com.assignment.spring.weather.api.exception.NotFoundException;
@@ -11,6 +10,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
+
+import static com.assignment.spring.external.openweather.constants.RequestParams.API_KEY;
+import static com.assignment.spring.external.openweather.constants.RequestParams.CITY;
 
 @Service
 public class OpenWeatherService implements WeatherProvider {
@@ -33,8 +35,8 @@ public class OpenWeatherService implements WeatherProvider {
     @Override
     public Weather getTemperatureForCity(String city) {
         String url = UriComponentsBuilder.fromHttpUrl(apiUrl)
-                .queryParam(RequestParams.API_KEY.getParamName(), apiKey)
-                .queryParam(RequestParams.CITY.getParamName(), city)
+                .queryParam(API_KEY.getParamName(), apiKey)
+                .queryParam(CITY.getParamName(), city)
                 .toUriString();
 
         ResponseEntity<WeatherResponse> response = restTemplate.getForEntity(url, WeatherResponse.class);

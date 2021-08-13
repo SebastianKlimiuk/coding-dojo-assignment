@@ -6,3 +6,8 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+
+openweather:
+  api:
+    url: http://test.com
+    key: someTestKeyString
