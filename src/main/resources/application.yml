@@ -1,8 +1,13 @@
 spring:
   datasource:
-    url: "jdbc:postgresql://localhost:5432/postgres"
-    password: postgres
-    username: postgres
+    url: ${DB_URL}
+    password: ${DB_PASSWORD}
+    username: ${DB_USER}
   jpa:
     hibernate:
       ddl-auto: update
+
+openweather:
+  api:
+    url: ${API_URL:http://api.openweathermap.org/data/2.5/weather}
+    key: ${API_KEY}
